@@ -32,10 +32,10 @@ class PhoneActions(ABC):
     def popup_ending_call(self, phone) -> str: pass
 
 
-class InitialScreen(PhoneActions):
+class InitialState(PhoneActions):
     def button_call(self) -> str:
-        self.context.switch_state(IntermediateScreen())
-        return constants.INTERMEDIATE_SCREEN
+        self.context.switch_state(IntermediateState())
+        return constants.INTERMEDIATE_STATE
 
     def button_dismiss(self) -> str:
         return constants.INPUT_ERROR
@@ -53,49 +53,49 @@ class InitialScreen(PhoneActions):
         return constants.INPUT_ERROR
 
 
-class IntermediateScreen(PhoneActions):
+class IntermediateState(PhoneActions):
     def button_call(self) -> str:
         return constants.INPUT_ERROR
 
     def button_dismiss(self) -> str:
-        self.context.switch_state(InitialScreen())
-        return constants.INITIAL_SCREEN
+        self.context.switch_state(InitialState())
+        return constants.INITIAL_STATE
 
     def avatar_displayed(self) -> str:
-        self.context.switch_state(CallScreen())
-        return constants.CALL_SCREEN
+        self.context.switch_state(CallState())
+        return constants.CALL_STATE
 
     def popup_no_network(self) -> str:
-        self.context.switch_state(InitialScreen())
-        return constants.INITIAL_SCREEN
+        self.context.switch_state(InitialState())
+        return constants.INITIAL_STATE
 
     def popup_call_dismissed(self) -> str:
-        self.context.switch_state(InitialScreen())
-        return constants.INITIAL_SCREEN
+        self.context.switch_state(InitialState())
+        return constants.INITIAL_STATE
 
     def popup_ending_call(self) -> str:
         return constants.INPUT_ERROR
 
 
-class CallScreen(PhoneActions):
+class CallState(PhoneActions):
     def button_call(self) -> str:
         return constants.INPUT_ERROR
 
     def button_dismiss(self) -> str:
-        self.context.switch_state(InitialScreen())
-        return constants.INITIAL_SCREEN
+        self.context.switch_state(InitialState())
+        return constants.INITIAL_STATE
 
     def avatar_displayed(self) -> str:
         return constants.INPUT_ERROR
 
     def popup_no_network(self) -> str:
-        self.context.switch_state(InitialScreen())
-        return constants.INITIAL_SCREEN
+        self.context.switch_state(InitialState())
+        return constants.INITIAL_STATE
 
     def popup_call_dismissed(self) -> str:
-        self.context.switch_state(InitialScreen())
-        return constants.INITIAL_SCREEN
+        self.context.switch_state(InitialState())
+        return constants.INITIAL_STATE
 
     def popup_ending_call(self) -> str:
-        self.context.switch_state(InitialScreen())
-        return constants.INITIAL_SCREEN
+        self.context.switch_state(InitialState())
+        return constants.INITIAL_STATE

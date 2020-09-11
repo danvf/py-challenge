@@ -1,11 +1,11 @@
-from phone.phone_states import InitialScreen
+from phone.phone_states import InitialState
 
 from util import constants
 
 
 class PhoneInterface:
     def __init__(self):
-        self._state = InitialScreen()
+        self._state = InitialState()
         self._state.context = self
 
     def switch_state(self, new_state):
