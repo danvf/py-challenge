@@ -1,5 +1,34 @@
-from .phone_actions import PhoneActions
-from .util import constants
+from abc import ABC, abstractmethod
+from ..util import constants
+
+
+class PhoneActions(ABC):
+
+    @property
+    def context(self):
+        return self._context
+
+    @context.setter
+    def context(self, context):
+        self._context = context
+
+    @abstractmethod
+    def button_call(self, phone): pass
+
+    @abstractmethod
+    def button_dismiss(self, phone): pass
+
+    @abstractmethod
+    def avatar_displayed(self, phone): pass
+
+    @abstractmethod
+    def popup_no_network(self, phone): pass
+
+    @abstractmethod
+    def popup_call_dismissed(self, phone): pass
+
+    @abstractmethod
+    def popup_ending_call(self, phone): pass
 
 
 class InitialScreen(PhoneActions):
