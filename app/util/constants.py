@@ -1,0 +1,5 @@
+INPUT_ERROR = "Input does not apply!"
+NONEXISTENT_INPUT = "Nonexistent input!"
+INITIAL_SCREEN = "TIL"
+INTERMEDIATE_SCREEN = "TI"
+CALL_SCREEN = "TL"

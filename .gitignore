@@ -1,0 +1,4 @@
+.pyvenv
+Scripts/
+Lib/
+/.vscode
