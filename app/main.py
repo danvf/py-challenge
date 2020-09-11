@@ -1,5 +1,7 @@
 import sys
+
 from phone.phone_interface import PhoneInterface
+
 from io_manager import read_input
 from io_manager import write_output
 
