@@ -13,88 +13,88 @@ class PhoneActions(ABC):
         self._context = context
 
     @abstractmethod
-    def button_call(self, phone): pass
+    def button_call(self, phone) -> str: pass
 
     @abstractmethod
-    def button_dismiss(self, phone): pass
+    def button_dismiss(self, phone) -> str: pass
 
     @abstractmethod
-    def avatar_displayed(self, phone): pass
+    def avatar_displayed(self, phone) -> str: pass
 
     @abstractmethod
-    def popup_no_network(self, phone): pass
+    def popup_no_network(self, phone) -> str: pass
 
     @abstractmethod
-    def popup_call_dismissed(self, phone): pass
+    def popup_call_dismissed(self, phone) -> str: pass
 
     @abstractmethod
-    def popup_ending_call(self, phone): pass
+    def popup_ending_call(self, phone) -> str: pass
 
 
 class InitialScreen(PhoneActions):
-    def button_call(self):
-        print(constants.INTERMEDIATE_SCREEN)
+    def button_call(self) -> str:
         self.context.switch_state(IntermediateScreen())
+        return constants.INTERMEDIATE_SCREEN
 
-    def button_dismiss(self):
-        print(constants.INPUT_ERROR)
+    def button_dismiss(self) -> str:
+        return constants.INPUT_ERROR
 
-    def avatar_displayed(self):
-        print(constants.INPUT_ERROR)
+    def avatar_displayed(self) -> str:
+        return constants.INPUT_ERROR
 
-    def popup_no_network(self):
-        print(constants.INPUT_ERROR)
+    def popup_no_network(self) -> str:
+        return constants.INPUT_ERROR
 
-    def popup_call_dismissed(self):
-        print(constants.INPUT_ERROR)
+    def popup_call_dismissed(self) -> str:
+        return constants.INPUT_ERROR
 
-    def popup_ending_call(self):
-        print(constants.INPUT_ERROR)
+    def popup_ending_call(self) -> str:
+        return constants.INPUT_ERROR
 
 
 class IntermediateScreen(PhoneActions):
-    def button_call(self):
-        print(constants.INPUT_ERROR)
+    def button_call(self) -> str:
+        return constants.INPUT_ERROR
 
-    def button_dismiss(self):
-        print(constants.INITIAL_SCREEN)
+    def button_dismiss(self) -> str:
         self.context.switch_state(InitialScreen())
+        return constants.INITIAL_SCREEN
 
-    def avatar_displayed(self):
-        print(constants.CALL_SCREEN)
+    def avatar_displayed(self) -> str:
         self.context.switch_state(CallScreen())
+        return constants.CALL_SCREEN
 
-    def popup_no_network(self):
-        print(constants.INITIAL_SCREEN)
+    def popup_no_network(self) -> str:
         self.context.switch_state(InitialScreen())
+        return constants.INITIAL_SCREEN
 
-    def popup_call_dismissed(self):
-        print(constants.INITIAL_SCREEN)
+    def popup_call_dismissed(self) -> str:
         self.context.switch_state(InitialScreen())
+        return constants.INITIAL_SCREEN
 
-    def popup_ending_call(self):
-        print(constants.INPUT_ERROR)
+    def popup_ending_call(self) -> str:
+        return constants.INPUT_ERROR
 
 
 class CallScreen(PhoneActions):
-    def button_call(self):
-        print(constants.INPUT_ERROR)
+    def button_call(self) -> str:
+        return constants.INPUT_ERROR
 
-    def button_dismiss(self):
-        print(constants.INITIAL_SCREEN)
+    def button_dismiss(self) -> str:
         self.context.switch_state(InitialScreen())
+        return constants.INITIAL_SCREEN
 
-    def avatar_displayed(self):
-        print(constants.INPUT_ERROR)
+    def avatar_displayed(self) -> str:
+        return constants.INPUT_ERROR
 
-    def popup_no_network(self):
-        print(constants.INITIAL_SCREEN)
+    def popup_no_network(self) -> str:
         self.context.switch_state(InitialScreen())
+        return constants.INITIAL_SCREEN
 
-    def popup_call_dismissed(self):
-        print(constants.INITIAL_SCREEN)
+    def popup_call_dismissed(self) -> str:
         self.context.switch_state(InitialScreen())
+        return constants.INITIAL_SCREEN
 
-    def popup_ending_call(self):
-        print(constants.INITIAL_SCREEN)
+    def popup_ending_call(self) -> str:
         self.context.switch_state(InitialScreen())
+        return constants.INITIAL_SCREEN

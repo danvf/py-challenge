@@ -1,15 +1,16 @@
+import sys
 from phone.phone_interface import PhoneInterface
+from io_manager import read_input
+from io_manager import write_output
 
 
 def main():
+    input_file = sys.argv[1]
+    output_file = sys.argv[2]
+
     my_phone = PhoneInterface()
-    my_phone.press_button_call()
-    my_phone.press_button_dismiss()
-    my_phone.flag_popup_call_dismissed()
-    my_phone.flag_avatar_displayed()
-    my_phone.press_button_call()
-    my_phone.flag_avatar_displayed()
-    my_phone.flag_avatar_displayed()
+    output_text = read_input(input_file, my_phone)
+    write_output(output_file, output_text)
 
 
 if __name__ == "__main__":
